@@ -23,7 +23,9 @@ jobs:
           chmod u+x /usr/local/bin/mdbook
 
       - name: build
-        run: mdbook build
+        run: |
+          mdbook build
+          mkdir public && mv src/develop-web/web/practice3.html public/index.html
 
       - name: deploy to vercel
         uses: amondnet/vercel-action@v25
@@ -38,4 +40,4 @@ jobs:
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./book
+          publish_dir: ./public
