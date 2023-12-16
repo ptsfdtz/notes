@@ -25,7 +25,7 @@ jobs:
       - name: build
         run: |
           mdbook build
-          mkdir public && mv src/develop-web/web/practice3.html public/index.html
+          mkdir public && mv src/develop-web/html_practice/practice3.html public/index.html
 
       - name: deploy to vercel
         uses: amondnet/vercel-action@v25
