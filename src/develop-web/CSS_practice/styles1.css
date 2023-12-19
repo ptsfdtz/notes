@@ -57,28 +57,28 @@ body h1 + p .special {
   }
 
 .box2 {
-    margin: 30px;
-    width: 100px;
-    height: 100px;
-    background-color: rebeccapurple;
-    transform: rotate(0.12turn);
-  }
+  margin: 30px;
+  width: 100px;
+  height: 100px;
+  background-color: rebeccapurple;
+  transform: rotate(0.12turn);
+}
 
+body {
+  font:
+    1em/150% Helvetica,
+    Arial,
+    sans-serif;
+  padding: 1em;
+  margin: 0 auto;
+  max-width: 33em;
+}
+
+@media (min-width: 70em) {
+  /* 在更大的屏幕或窗口中提高全局的字体大小以提高可读性 */
   body {
-    font:
-      1em/150% Helvetica,
-      Arial,
-      sans-serif;
-    padding: 1em;
-    margin: 0 auto;
-    max-width: 33em;
+    font-size: 130%;
   }
-  
-  @media (min-width: 70em) {
-    /* 在更大的屏幕或窗口中提高全局的字体大小以提高可读性 */
-    body {
-      font-size: 130%;
-    }
-  }
+}
   
   
