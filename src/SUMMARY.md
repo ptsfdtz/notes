@@ -4,6 +4,7 @@
 
 - [tools](./tools/intro.md)
   - [powershell](./tools/powershell.md)
+  - [ohmyposh](./tools/ohmyposh.md)
   - [git](./tools/git.md)
   - [docker](./tools/docker.md)
   - [wireguard](./tools/wireguard.md)
