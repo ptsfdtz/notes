@@ -6,5 +6,4 @@
 
 | 平台      | 链接                                           |
 | --------- | ---------------------------------------------- |
-| github.io | [点击访问](https://ptsfdtz.github.io/note/)    |
-| vercel    | [点击访问](https://note-one-alpha.vercel.app/) |
+| github.io | [点击访问](https://ptsfdtz.github.io/notes/)    |
