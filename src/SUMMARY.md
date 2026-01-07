@@ -4,6 +4,7 @@
 
 - [tools](./tools/intro.md)
   - [powershell](./tools/powershell.md)
+  - [winget](./tools/winget.md)
   - [ohmyposh](./tools/ohmyposh.md)
   - [git](./tools/git.md)
   - [docker](./tools/docker.md)
