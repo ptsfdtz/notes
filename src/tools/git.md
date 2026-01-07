@@ -4,10 +4,16 @@
 
 1. 官网下载 [下载](https://git-scm.com/downloads)
 
-2. 终端下载
+2. Windows下载
 
 ```sh
 winget install --id Git.Git -e --source winget
+```
+3. Linux 下载
+
+```sh
+sudo apt-get install git # Debian/Ubuntu
+sudo yum install git     # CentOS/RHEL
 ```
 
 ## 二.配置 Git
