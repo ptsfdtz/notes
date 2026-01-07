@@ -175,12 +175,10 @@
                     <main>
                         <h1 id="nano"><a class="header" href="#nano">nano</a></h1>
 <h2 id="一-linux安装"><a class="header" href="#一-linux安装">一. linux安装</a></h2>
-<div class="table-wrapper"><table><thead><tr><th>说明</th><th>命令</th></tr></thead><tbody>
-<tr><td>Ubuntu/Debian 系统安装 nano</td><td><code>sudo apt-get install nano</code></td></tr>
-<tr><td>CentOS/RHEL 系统安装 nano</td><td><code>sudo yum install nano</code></td></tr>
-<tr><td>Fedora 系统安装 nano</td><td><code>sudo dnf install nano</code></td></tr>
-</tbody></table>
-</div>
+<pre><code class="language-sh">sudo apt update &amp;&amp; sudo apt install nano -y # Debian/Ubuntu系统
+sudo yum install nano -y                     # CentOS/RHEL系统
+sudo dnf install nano -y                     # Fedora系统
+</code></pre>
 <h2 id="二-windows安装"><a class="header" href="#二-windows安装">二. Windows安装</a></h2>
 <pre><code class="language-sh">winget install --id Nano.Nano -e --source winget
 </code></pre>
