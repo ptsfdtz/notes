@@ -11,10 +11,9 @@
   - [wireguard](./tools/wireguard.md)
   - [nano](./tools/nano.md)
   - [vim](./tools/vim.md)
-  - [vscode](./tools/vscode.md)
 
 - [languages](./languages/intro.md)
-  - [javascript](./languages/javascript.md)
+  - [nodejs](./languages/nodejs.md)
   - [go](./languages/go.md)
   - [python](./languages/python.md)
   - [rust](./languages/rust.md)
