@@ -2,11 +2,11 @@
 
 ## 一. linux安装 
 
-| 说明 | 命令 |
-| ---- | ---- |
-| Ubuntu/Debian 系统安装 nano | `sudo apt-get install nano` |
-| CentOS/RHEL 系统安装 nano | `sudo yum install nano` |
-| Fedora 系统安装 nano | `sudo dnf install nano` |
+```sh
+sudo apt update && sudo apt install nano -y # Debian/Ubuntu系统
+sudo yum install nano -y                     # CentOS/RHEL系统
+sudo dnf install nano -y                     # Fedora系统
+```
 
 ## 二. Windows安装
 
