@@ -866,18 +866,65 @@ go env -u GOSUMDB
 <li><code>go test ./...</code> 可以快速覆盖整个项目包的基础回归。</li>
 </ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="python"><a class="header" href="#python">python</a></h1>
+<h2 id="安装-pythonwindows"><a class="header" href="#安装-pythonwindows">安装 Python（Windows）</a></h2>
+<p>推荐使用 <code>winget</code> 安装官方版本：</p>
+<pre><code class="language-powershell">winget install --id Python.Python.3.14 --source winget --accept-source-agreements --accept-package-agreements --override &quot;InstallAllUsers=0 PrependPath=1 Include_launcher=1 Include_pip=1&quot;
+</code></pre>
+<p>说明：</p>
+<ol>
+<li><code>PrependPath=1</code> 会把 Python 和 Scripts 目录加入 <code>Path</code>。</li>
+<li><code>Include_launcher=1</code> 会安装 <code>py</code> 启动器。</li>
+<li><code>Include_pip=1</code> 会安装 <code>pip</code>。</li>
+</ol>
+<h2 id="验证安装-1"><a class="header" href="#验证安装-1">验证安装</a></h2>
+<pre><code class="language-powershell">python --version
+pip --version
+py --version
+</code></pre>
+<p>如果当前终端提示找不到命令，先重开终端再试。</p>
+<h2 id="虚拟环境"><a class="header" href="#虚拟环境">虚拟环境</a></h2>
+<p>创建虚拟环境：</p>
+<pre><code class="language-powershell">python -m venv .venv
+</code></pre>
+<p>激活虚拟环境（PowerShell）：</p>
+<pre><code class="language-powershell">.\.venv\Scripts\Activate.ps1
+</code></pre>
+<p>退出虚拟环境：</p>
+<pre><code class="language-powershell">deactivate
+</code></pre>
+<h2 id="常用命令-1"><a class="header" href="#常用命令-1">常用命令</a></h2>
+<p>升级 <code>pip</code>：</p>
+<pre><code class="language-powershell">python -m pip install --upgrade pip
+</code></pre>
+<p>安装依赖：</p>
+<pre><code class="language-powershell">pip install &lt;package-name&gt;
+</code></pre>
+<p>导出依赖：</p>
+<pre><code class="language-powershell">pip freeze &gt; requirements.txt
+</code></pre>
+<p>按依赖文件安装：</p>
+<pre><code class="language-powershell">pip install -r requirements.txt
+</code></pre>
+<h2 id="经验总结-1"><a class="header" href="#经验总结-1">经验总结</a></h2>
+<ol>
+<li>本机实测通过 <code>winget</code> 安装后，<code>python.exe</code>、<code>pip.exe</code>、<code>py.exe</code> 都已安装在用户目录下：
+<code>C:\Users\16526\AppData\Local\Programs\Python\Python314\</code></li>
+<li>用户级 <code>Path</code> 虽然已更新，但当前已打开的终端会话不会自动刷新，重开终端后命令才会直接可用。</li>
+<li>如果执行 <code>python</code> 仍跳转到 Microsoft Store，需要在系统设置中关闭 App Execution Aliases 里的 <code>python.exe/python3.exe</code>。</li>
+<li>验收建议至少检查三项：<code>python --version</code>、<code>pip --version</code>、<code>py --version</code>。</li>
+</ol>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="rust"><a class="header" href="#rust">rust</a></h1>
 <h2 id="安装-rustwindows"><a class="header" href="#安装-rustwindows">安装 Rust（Windows）</a></h2>
 <p>推荐使用 <code>rustup</code>，方便后续切换工具链和升级。</p>
 <pre><code class="language-powershell">winget install --id Rustlang.Rustup --source winget --accept-source-agreements --accept-package-agreements
 </code></pre>
-<h2 id="验证安装-1"><a class="header" href="#验证安装-1">验证安装</a></h2>
+<h2 id="验证安装-2"><a class="header" href="#验证安装-2">验证安装</a></h2>
 <pre><code class="language-powershell">rustup --version
 rustc --version
 cargo --version
 </code></pre>
 <p>如果命令找不到，先重开终端再试一次。</p>
-<h2 id="常用命令-1"><a class="header" href="#常用命令-1">常用命令</a></h2>
+<h2 id="常用命令-2"><a class="header" href="#常用命令-2">常用命令</a></h2>
 <h3 id="更新工具链"><a class="header" href="#更新工具链">更新工具链</a></h3>
 <pre><code class="language-powershell">rustup update
 </code></pre>
@@ -892,7 +939,7 @@ cargo --version
 cd hello-rust
 cargo run
 </code></pre>
-<h2 id="经验总结-1"><a class="header" href="#经验总结-1">经验总结</a></h2>
+<h2 id="经验总结-2"><a class="header" href="#经验总结-2">经验总结</a></h2>
 <ol>
 <li><code>winget</code> 安装 <code>Rustlang.Rustup</code> 后，<code>~\.cargo\bin</code> 会放置 <code>rustup/rustc/cargo</code>。</li>
 <li>用户级 <code>Path</code> 即使已经包含 <code>~\.cargo\bin</code>，当前终端会话也可能还不可见。</li>
@@ -915,8 +962,119 @@ if ((Test-Path $cargoBin) -and -not (($env:Path -split ';') -contains $cargoBin)
 <div style="break-before: page; page-break-before: always;"></div><h1 id="grafana"><a class="header" href="#grafana">grafana</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="frontend"><a class="header" href="#frontend">frontend</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="react"><a class="header" href="#react">react</a></h1>
+<h2 id="pnpm-和-vite-创建"><a class="header" href="#pnpm-和-vite-创建">pnpm 和 vite 创建</a></h2>
+<pre><code class="language-bash">pnpm create vite my-react-app --template react
+cd my-react-app
+pnpm install
+pnpm run dev
+</code></pre>
+<h2 id="github-workflow"><a class="header" href="#github-workflow">github workflow</a></h2>
+<pre><code class="language-yaml">name: Deploy to GitHub Pages
+
+on:
+  push:
+    branches: [&quot;main&quot;]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: &quot;pages&quot;
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: latest
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: &quot;20&quot;
+          cache: &quot;pnpm&quot;
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build
+        run: pnpm build
+        env:
+          BASE_URL: /${{ github.event.repository.name }}/
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./dist
+          user_name: &quot;github-actions[bot]&quot;
+          user_email: &quot;github-actions[bot]@users.noreply.github.com&quot;
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="vue"><a class="header" href="#vue">vue</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="nextjs"><a class="header" href="#nextjs">nextjs</a></h1>
+<h2 id="pnpm-创建"><a class="header" href="#pnpm-创建">pnpm 创建</a></h2>
+<pre><code class="language-bash">pnpm create next-app my-nextjs-app
+cd my-nextjs-app
+pnpm install
+pnpm run dev
+</code></pre>
+<h2 id="github-workflow-1"><a class="header" href="#github-workflow-1">github workflow</a></h2>
+<pre><code class="language-yaml">name: Deploy Next.js 16 to GitHub Pages
+
+on:
+  push:
+    branches: [&quot;main&quot;]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: &quot;pages&quot;
+  cancel-in-progress: false
+
+jobs:
+  build-and-deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup pnpm
+        uses: pnpm/action-setup@v4
+        with:
+          version: latest
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: &quot;20&quot;
+          cache: &quot;pnpm&quot;
+
+      - name: Install dependencies
+        run: pnpm install
+
+      - name: Build (Next.js static export)
+        run: pnpm build
+        env:
+          NEXT_PUBLIC_BASE_PATH: /${{ github.event.repository.name }}
+
+      - name: Deploy to GitHub Pages
+        uses: peaceiris/actions-gh-pages@v4
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./out
+          user_name: &quot;github-actions[bot]&quot;
+          user_email: &quot;github-actions[bot]@users.noreply.github.com&quot;
+</code></pre>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="svelte"><a class="header" href="#svelte">svelte</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="vite"><a class="header" href="#vite">vite</a></h1>
 <div style="break-before: page; page-break-before: always;"></div><h1 id="tailwindcss"><a class="header" href="#tailwindcss">tailwindcss</a></h1>
