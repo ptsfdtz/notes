@@ -173,7 +173,73 @@
 
                 <div id="content" class="content">
                     <main>
-                        <h1 id="ohmyposh"><a class="header" href="#ohmyposh">ohmyposh</a></h1>
+                        <h1 id="oh-my-posh"><a class="header" href="#oh-my-posh">Oh my posh</a></h1>
+<p>PowerShell 提示符美化工具。</p>
+<h2 id="安装和更新"><a class="header" href="#安装和更新">安装和更新</a></h2>
+<h3 id="安装"><a class="header" href="#安装">安装</a></h3>
+<pre><code class="language-powershell">winget install JanDeDobbeleer.OhMyPosh -s winget
+</code></pre>
+<h3 id="检查版本"><a class="header" href="#检查版本">检查版本</a></h3>
+<pre><code class="language-powershell">oh-my-posh version
+</code></pre>
+<blockquote>
+<p>通过 winget 安装后，通常不需要手动追加 <code>Path</code>。</p>
+</blockquote>
+<h3 id="更新"><a class="header" href="#更新">更新</a></h3>
+<pre><code class="language-powershell">winget upgrade JanDeDobbeleer.OhMyPosh -s winget
+</code></pre>
+<h2 id="主题配置推荐落地到本地文件"><a class="header" href="#主题配置推荐落地到本地文件">主题配置（推荐：落地到本地文件）</a></h2>
+<p>下面以 <code>aliens</code> 为例，执行一次即可：</p>
+<pre><code class="language-powershell">$themeDir = Join-Path $HOME &quot;Documents\PowerShell\themes&quot;
+New-Item -ItemType Directory -Force -Path $themeDir | Out-Null
+
+$themeFile = Join-Path $themeDir &quot;aliens.omp.json&quot;
+Invoke-WebRequest `
+  -Uri &quot;https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/aliens.omp.json&quot; `
+  -OutFile $themeFile
+</code></pre>
+<p>在 <code>$PROFILE</code> 中加入：</p>
+<pre><code class="language-powershell">$ompTheme = Join-Path $HOME &quot;Documents\PowerShell\themes\aliens.omp.json&quot;
+if (Test-Path $ompTheme) {
+    $ompShell = if ($PSVersionTable.PSEdition -eq &quot;Core&quot;) { &quot;pwsh&quot; } else { &quot;powershell&quot; }
+    oh-my-posh init $ompShell --config $ompTheme | Invoke-Expression
+}
+</code></pre>
+<p>立即生效：</p>
+<pre><code class="language-powershell">. $PROFILE
+</code></pre>
+<h2 id="主题配置不落地文件直接用-url"><a class="header" href="#主题配置不落地文件直接用-url">主题配置（不落地文件，直接用 URL）</a></h2>
+<p>如果你不想下载主题文件，也可以直接用远程配置：</p>
+<pre><code class="language-powershell">oh-my-posh init pwsh --config &quot;https://raw.githubusercontent.com/JanDeDobbeleer/oh-my-posh/main/themes/agnosterplus.omp.json&quot; | Invoke-Expression
+</code></pre>
+<h2 id="注意事项"><a class="header" href="#注意事项">注意事项</a></h2>
+<ol>
+<li>某些环境下 <code>$env:POSH_THEMES_PATH</code> 为空，不建议直接依赖它拼接主题路径。</li>
+<li>图标显示异常（方块/问号）时，先安装 Nerd Font：</li>
+</ol>
+<pre><code class="language-powershell">oh-my-posh font install Meslo --headless
+</code></pre>
+<ol start="3">
+<li>安装字体后，确保终端字体已切换到 Nerd Font（例如 <code>MesloLGLDZ Nerd Font</code>）：</li>
+</ol>
+<ul>
+<li>Windows Terminal: <code>settings.json</code> 中设置 <code>profiles.defaults.font.face</code></li>
+<li>VS Code: <code>settings.json</code> 中设置 <code>terminal.integrated.fontFamily</code></li>
+</ul>
+<ol start="4">
+<li>如果使用 Windows PowerShell 遇到 <code>running scripts is disabled on this system</code>，建议切换到 PowerShell 7 (<code>pwsh</code>) 作为默认终端。</li>
+</ol>
+<h2 id="主题列表"><a class="header" href="#主题列表">主题列表</a></h2>
+<ul>
+<li><a href="https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/agnosterplus.omp.json">agnosterplus</a>
+<img src="./images/agnoster.png" alt="agnosterplus" /></li>
+<li><a href="https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/aliens.omp.json">aliens</a>
+<img src="./images/aliens.png" alt="aliens" /></li>
+<li><a href="https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/amro.omp.json">amro</a>
+<img src="./images/amro.png" alt="amro" /></li>
+<li><a href="https://github.com/JanDeDobbeleer/oh-my-posh/blob/main/themes/catppuccin_frappe.omp.json">catppuccin</a>
+<img src="./images/catppuccin_frappe.png" alt="catppuccin" /></li>
+</ul>
 
                     </main>
 
