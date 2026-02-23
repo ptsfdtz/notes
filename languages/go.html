@@ -174,8 +174,64 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="go"><a class="header" href="#go">go</a></h1>
-<h2 id="安装-go"><a class="header" href="#安装-go">安装 go</a></h2>
-<p><a href="https://go.dev/dl/">go 官方安装文档</a></p>
+<h2 id="安装-gowindows"><a class="header" href="#安装-gowindows">安装 Go（Windows）</a></h2>
+<p>推荐优先使用 <code>winget</code> 安装：</p>
+<pre><code class="language-powershell">winget install --id GoLang.Go --source winget --accept-source-agreements --accept-package-agreements
+</code></pre>
+<p>也可以使用官方安装包：</p>
+<ul>
+<li><a href="https://go.dev/dl/">Go 官方下载</a></li>
+</ul>
+<h2 id="验证安装"><a class="header" href="#验证安装">验证安装</a></h2>
+<pre><code class="language-powershell">go version
+go env GOROOT
+go env GOPATH
+</code></pre>
+<p>如果命令找不到，先重开终端再试一次。</p>
+<h2 id="模块和项目初始化"><a class="header" href="#模块和项目初始化">模块和项目初始化</a></h2>
+<h3 id="创建第一个项目"><a class="header" href="#创建第一个项目">创建第一个项目</a></h3>
+<pre><code class="language-powershell">mkdir hello-go
+cd hello-go
+go mod init hello-go
+</code></pre>
+<p>创建 <code>main.go</code>：</p>
+<pre><code class="language-go">package main
+
+import &quot;fmt&quot;
+
+func main() {
+	fmt.Println(&quot;hello go&quot;)
+}
+</code></pre>
+<p>运行项目：</p>
+<pre><code class="language-powershell">go run .
+</code></pre>
+<h2 id="常用命令"><a class="header" href="#常用命令">常用命令</a></h2>
+<pre><code class="language-powershell">go mod tidy
+go fmt ./...
+go test ./...
+go build ./...
+</code></pre>
+<h2 id="常用配置"><a class="header" href="#常用配置">常用配置</a></h2>
+<h3 id="配置国内代理可选"><a class="header" href="#配置国内代理可选">配置国内代理（可选）</a></h3>
+<pre><code class="language-powershell">go env -w GOPROXY=https://goproxy.cn,direct
+go env -w GOSUMDB=sum.golang.google.cn
+</code></pre>
+<p>查看当前配置：</p>
+<pre><code class="language-powershell">go env GOPROXY
+go env GOSUMDB
+</code></pre>
+<p>恢复默认：</p>
+<pre><code class="language-powershell">go env -u GOPROXY
+go env -u GOSUMDB
+</code></pre>
+<h2 id="经验总结"><a class="header" href="#经验总结">经验总结</a></h2>
+<ol>
+<li><code>go install &lt;module&gt;@latest</code> 安装的可执行文件默认在 <code>GOPATH\bin</code>。</li>
+<li>如果安装了工具但命令不可用，先确认 <code>GOPATH\bin</code> 是否在 <code>Path</code> 中。</li>
+<li><code>go mod tidy</code> 建议作为日常命令，能及时清理和补齐依赖。</li>
+<li><code>go test ./...</code> 可以快速覆盖整个项目包的基础回归。</li>
+</ol>
 
                     </main>
 

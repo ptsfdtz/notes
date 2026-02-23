@@ -174,6 +174,45 @@
                 <div id="content" class="content">
                     <main>
                         <h1 id="rust"><a class="header" href="#rust">rust</a></h1>
+<h2 id="安装-rustwindows"><a class="header" href="#安装-rustwindows">安装 Rust（Windows）</a></h2>
+<p>推荐使用 <code>rustup</code>，方便后续切换工具链和升级。</p>
+<pre><code class="language-powershell">winget install --id Rustlang.Rustup --source winget --accept-source-agreements --accept-package-agreements
+</code></pre>
+<h2 id="验证安装"><a class="header" href="#验证安装">验证安装</a></h2>
+<pre><code class="language-powershell">rustup --version
+rustc --version
+cargo --version
+</code></pre>
+<p>如果命令找不到，先重开终端再试一次。</p>
+<h2 id="常用命令"><a class="header" href="#常用命令">常用命令</a></h2>
+<h3 id="更新工具链"><a class="header" href="#更新工具链">更新工具链</a></h3>
+<pre><code class="language-powershell">rustup update
+</code></pre>
+<h3 id="查看已安装工具链"><a class="header" href="#查看已安装工具链">查看已安装工具链</a></h3>
+<pre><code class="language-powershell">rustup toolchain list
+</code></pre>
+<h3 id="设置默认工具链"><a class="header" href="#设置默认工具链">设置默认工具链</a></h3>
+<pre><code class="language-powershell">rustup default stable
+</code></pre>
+<h3 id="创建并运行第一个项目"><a class="header" href="#创建并运行第一个项目">创建并运行第一个项目</a></h3>
+<pre><code class="language-powershell">cargo new hello-rust
+cd hello-rust
+cargo run
+</code></pre>
+<h2 id="经验总结"><a class="header" href="#经验总结">经验总结</a></h2>
+<ol>
+<li><code>winget</code> 安装 <code>Rustlang.Rustup</code> 后，<code>~\.cargo\bin</code> 会放置 <code>rustup/rustc/cargo</code>。</li>
+<li>用户级 <code>Path</code> 即使已经包含 <code>~\.cargo\bin</code>，当前终端会话也可能还不可见。</li>
+<li>最稳妥做法是重开终端；如果想每次启动都兜底，可在 PowerShell profile 中补一段：</li>
+</ol>
+<pre><code class="language-powershell">$cargoBin = Join-Path $HOME &quot;.cargo\bin&quot;
+if ((Test-Path $cargoBin) -and -not (($env:Path -split ';') -contains $cargoBin)) {
+    $env:Path = &quot;$cargoBin;$env:Path&quot;
+}
+</code></pre>
+<ol start="4">
+<li>验收不要只看 <code>rustup</code>，至少同时确认 <code>rustc</code> 和 <code>cargo</code> 版本。</li>
+</ol>
 
                     </main>
 
