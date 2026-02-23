@@ -46,7 +46,7 @@ cd hello-rust
 cargo run
 ```
 
-## 经验总结（本机实践）
+## 经验总结
 
 1. `winget` 安装 `Rustlang.Rustup` 后，`~\.cargo\bin` 会放置 `rustup/rustc/cargo`。
 2. 用户级 `Path` 即使已经包含 `~\.cargo\bin`，当前终端会话也可能还不可见。
