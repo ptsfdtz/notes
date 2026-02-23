@@ -9,6 +9,7 @@
 ```sh
 winget install --id Git.Git -e --source winget
 ```
+
 3. Linux 下载
 
 ```sh
@@ -31,8 +32,8 @@ git init
 2. 设置用户名和邮箱
 
 ```sh
-git config user.name 'github用户名'
-git config user.email '邮箱'
+git config user.name 'ptsfdtz'
+git config user.email 'pitousanfadetuzi@gmail.com'
 ```
 
 3. 查看邮箱用户配置
@@ -46,7 +47,7 @@ git config --list
 进入 gitconfig 文件
 
 ```sh
-vim ~/.gitconfig
+code ~/.gitconfig # vscode
 ```
 
 添加以下内容
@@ -153,7 +154,7 @@ git log --graph ##查看分支合并图
 
 git log --graph --pretty=oneline --abbrev-commit ##也可以查看分支合并图
 
-git tag <num>
+git tag <num> ##创建标签
 
-git push --tags
+git push --tags ##推送标签
 ```

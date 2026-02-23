@@ -1,6 +1,6 @@
 # nano
 
-## 一. linux安装 
+## 一. linux安装
 
 ```sh
 sudo apt update && sudo apt install nano -y # Debian/Ubuntu系统

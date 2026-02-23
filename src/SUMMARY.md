@@ -41,7 +41,7 @@
 - [desktop](./desktop/intro.md)
   - [electron](./desktop/electron.md)
   - [tauri](./desktop/tauri.md)
-  - [wails](./desktop/wails.md) 
+  - [wails](./desktop/wails.md)
   - [react-native](./desktop/react-native.md)
 
 - [database](./database/intro.md)

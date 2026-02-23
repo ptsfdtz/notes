@@ -17,6 +17,7 @@ $PSVersionTable
 2. 更新 PowerShell
 
 添加中科大镜像源
+
 ```powershell
 winget source add --name winget --arg https://mirrors.ustc.edu.cn/winget-source
 ```
@@ -28,7 +29,7 @@ winget search PowerShell # 查询可用的 PowerShell 包
 3. 安装（微软发布的 PowerShell）
 
 ```powershell
-winget install --id Microsoft.PowerShell -e
+winget install --id Microsoft.PowerShell --source winget
 ```
 
 4. 打开 Windows Terminal 的 settings.json 并修改配置（示例，替换为你的 GUID）

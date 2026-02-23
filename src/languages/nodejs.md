@@ -19,7 +19,7 @@ nvm use <version>
 npm install -g <package-name>
 ```
 
-1. pnpm: 
+1. pnpm:
 
 ```bash
 npm install -g pnpm
@@ -40,5 +40,5 @@ npm install -g typescript
 4. ts-node:
 
 ```bash
-npm install -g ts-node  
+npm install -g ts-node
 ```
