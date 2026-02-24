@@ -27,89 +27,89 @@ winget upgrade --all
 - vscode
 
 ```sh
-winget install --id Microsoft.VisualStudioCode -s winget
+winget install  Microsoft.VisualStudioCode -s winget
 ```
 
 - git
 
 ```sh
-winget install --id Git.Git -s winget
+winget install  Git.Git -s winget
 ```
 
 - chrome
 
 ```sh
-winget install --id Google.Chrome -s winget
+winget install  Google.Chrome -s winget
 ```
 
 - 7zip
 
 ```sh
-winget install --id 7zip.7zip -s winget
+winget install  7zip.7zip -s winget
 ```
 
 - JLC EDA Pro
 
 ```sh
-winget install --id JLC.LCEDA.Pro -s winget
+winget install  JLC.LCEDA.Pro -s winget
 ```
 
 - arduino
 
 ```sh
-winget install --id ArduinoSA.IDE.stable -s winget
+winget install  ArduinoSA.IDE.stable -s winget
 ```
 
 - bandizip
 
 ```sh
-winget install --id Bandisoft.Bandizip -s winget
+winget install  Bandisoft.Bandizip -s winget
 ```
 
 - draw.io
 
 ```sh
-winget install --id JGraph.Draw io.Desktop -s winget
+winget install  JGraph.Draw io.Desktop -s winget
 ```
 
 - obs-studio
 
 ```sh
-winget install --id OBSProject.OBSStudio -s winget
+winget install  OBSProject.OBSStudio -s winget
 ```
 
 - telegram
 
 ```sh
-winget install --id Telegram.TelegramDesktop -s winget
+winget install  Telegram.TelegramDesktop -s winget
 ```
 
 - nano
 
 ```sh
-winget install --id okibcn.nano -s winget
+winget install  okibcn.nano -s winget
 ```
 
 - vim
 
 ```sh
-winget install --id vim.vim -s winget
+winget install  vim.vim -s winget
 ```
 
 - wireguard
 
 ```sh
-winget install --id WireGuard.WireGuard -s winget
+winget install  WireGuard.WireGuard -s winget
 ```
 
 - QQ
 
 ```sh
-winget install --id Tencent.QQ -s winget
+winget install  Tencent.QQ -s winget
 ```
 
 - wechat
 
 ```sh
-winget install --id Tencent.WeChat -s winget
+winget install  Tencent.WeChat -s winget
 ```
