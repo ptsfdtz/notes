@@ -33,6 +33,7 @@
   - [svelte](./frontend/svelte.md)
   - [vite](./frontend/vite.md)
   - [tailwindcss](./frontend/tailwindcss.md)
+  - [typescript](./frontend/typescript.md)
 
 - [backend](./backend/intro.md)
   - [gin](./backend/gin.md)
@@ -43,8 +44,18 @@
   - [tauri](./desktop/tauri.md)
   - [wails](./desktop/wails.md)
   - [react-native](./desktop/react-native.md)
+  - [qt](./desktop/qt.md)
 
 - [database](./database/intro.md)
   - [mysql](./database/mysql.md)
   - [postgresql](./database/postgresql.md)
   - [redis](./database/redis.md)
+  - [mongodb](./database/mongodb.md)
+
+- [mobile](./mobile/intro.md)
+  - [flutter](./mobile/flutter.md)
+  - [android](./mobile/android.md)
+
+- [embedded](./embedded/intro.md)
+  - [stm32](./embedded/stm32.md)
+  - [communication](./embedded/communication.md)
