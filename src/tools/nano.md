@@ -10,8 +10,10 @@ sudo dnf install nano -y                     # Fedora系统
 
 ## 二. Windows安装
 
+Windows 版 nano 的 winget 包 ID 为 `okibcn.nano`（与 winget 笔记中一致）：
+
 ```sh
-winget install --id Nano.Nano -e --source winget
+winget install --id okibcn.nano -e --source winget
 ```
 
 ## 三. 配置

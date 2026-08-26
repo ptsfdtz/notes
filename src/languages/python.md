@@ -73,7 +73,7 @@ pip install -r requirements.txt
 ## 经验总结
 
 1. 本机实测通过 `winget` 安装后，`python.exe`、`pip.exe`、`py.exe` 都已安装在用户目录下：
-   `C:\Users\16526\AppData\Local\Programs\Python\Python314\`
+   `C:\Users\<用户名>\AppData\Local\Programs\Python\Python314\`，即 `%LOCALAPPDATA%\Programs\Python\Python314\`。
 2. 用户级 `Path` 虽然已更新，但当前已打开的终端会话不会自动刷新，重开终端后命令才会直接可用。
 3. 如果执行 `python` 仍跳转到 Microsoft Store，需要在系统设置中关闭 App Execution Aliases 里的 `python.exe/python3.exe`。
 4. 验收建议至少检查三项：`python --version`、`pip --version`、`py --version`。

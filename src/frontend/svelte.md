@@ -13,12 +13,14 @@ Svelte 组件将状态、模板和样式放在同一文件中。派生值应保�
 
 ## 组件例子
 
+> `sv create` 生成的是 Svelte 5 项目，事件使用 `onclick` 属性；Svelte 4 的 `on:click` 语法在新项目中已弃用。
+
 ```svelte
 <script>
   let count = 0;
 </script>
 
-<button on:click={() => count += 1}>
+<button onclick={() => count += 1}>
   count: {count}
 </button>
 ```

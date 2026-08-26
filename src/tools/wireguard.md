@@ -7,7 +7,7 @@
 1. 获取 root 权限
 
 ```sh
-sudo i
+sudo -i
 ```
 
 2. 安装 wireguard 软件
@@ -61,11 +61,11 @@ cat server.key && cat server.key.pub && cat client1.key && cat client1.key.pub
 nano /etc/wireguard/wg0.conf
 ```
 
-添加服务器配置文件内容
+添加服务器配置文件内容（`PrivateKey` 和 `PublicKey` 必须手动粘贴上面生成的实际密钥值，`$(cat ...)` 写在配置文件中不会展开，会导致启动失败）
 
 ```sh
 [Interface]
-PrivateKey = $(cat server.key) # 填写本机的privatekey 内容
+PrivateKey = <SERVER_PRIVATE_KEY> # 粘贴 server.key 的内容
 Address = 10.0.8.1 #本机虚拟局域网IP
 
 PostUp   = iptables -A FORWARD -i wg0 -j ACCEPT; iptables -A FORWARD -o wg0 -j ACCEPT; iptables -t nat -A POSTROUTING -o eth0 -j MASQUERADE
@@ -76,8 +76,8 @@ ListenPort = 50814 # 监听端口
 DNS = 8.8.8.8
 
 [Peer]
-PublicKey =  $(cat client1.key.pub)  #自动client1的公钥
-AllowedIPs = 10.0.8.10/32 #客户端所使用的IP" > wg0.conf
+PublicKey = <CLIENT1_PUBLIC_KEY> # 粘贴 client1.key.pub 的内容
+AllowedIPs = 10.0.8.10/32 #客户端所使用的IP
 ```
 
 **查看你的默认网卡**
@@ -109,14 +109,14 @@ wg-quick down wg0 #关闭wg0
 
 ```sh
 [Interface]
-PrivateKey = 6M8HEZioew+vR3i53sPc64Vg40YsuMzh4vI1Lkc88Xo= #此处为client1的私钥
+PrivateKey = <CLIENT1_PRIVATE_KEY> #此处为client1的私钥
 Address = 10.0.8.10 #此处为peer规定的客户端IP
 MTU = 1500
 
 [Peer]
-PublicKey = Tt5WEa0Vycf4F+TTjR2TAHDfa2onhh+tY8YOIT3cKjI= #此处为server的公钥
+PublicKey = <SERVER_PUBLIC_KEY> #此处为server的公钥
 AllowedIPs = 10.0.8.0/24 #此处为允许的服务器IP
-Endpoint = 114.132.56.178:50814 #服务器对端IP+端口
+Endpoint = <SERVER_PUBLIC_IP>:50814 #服务器对端IP+端口
 ```
 
 ### 配置防火墙
@@ -141,7 +141,7 @@ net.ipv4.ip_forward=1
 sudo sysctl -p
 ```
 
-**重启防火墙**
+**放行监听端口**
 
 1. 查看防火墙是否启动成功
 
@@ -149,10 +149,10 @@ sudo sysctl -p
 sudo ufw status
 ```
 
-2. 如果防火墙未启动，则启动防火墙
+2. 放行 wireguard 监听端口（必须与 `ListenPort` 保持一致）
 
 ```sh
-ufw allow 51820/udp
+ufw allow 50814/udp
 ```
 
 ### 查看是否连接成功

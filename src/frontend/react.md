@@ -9,6 +9,20 @@ pnpm install
 pnpm run dev
 ```
 
+## GitHub Pages 部署的 base 配置
+
+GitHub Pages 子路径部署时，Vite 默认的 `/` 根路径会导致静态资源 404。需要在 `vite.config.ts` 中设置 `base`，与 workflow 中的 `BASE_URL` 保持一致：
+
+```ts
+import { defineConfig } from 'vite'
+
+export default defineConfig({
+  base: '/<仓库名>/',
+})
+```
+
+仅部署到用户主页（`https://<用户名>.github.io/`）时使用默认 `base: '/'` 即可。注意 workflow 中设置的 `BASE_URL` 环境变量不会自动改变 Vite 的 `base`，必须显式配置。
+
 ## github workflow
 
 ```yaml

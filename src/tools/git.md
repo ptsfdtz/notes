@@ -32,8 +32,8 @@ git init
 2. 设置用户名和邮箱
 
 ```sh
-git config user.name 'ptsfdtz'
-git config user.email 'pitousanfadetuzi@gmail.com'
+git config user.name '<your-name>'
+git config user.email '<your-email>'
 ```
 
 3. 查看邮箱用户配置
@@ -50,14 +50,14 @@ git config --list
 code ~/.gitconfig # vscode
 ```
 
-添加以下内容
+添加以下内容（`<your-name>`、`<your-email>` 替换为你自己的信息）
 
 ```sh
 [user]
-    name=ptsfdtz
-    email=pitousanfadetuzi@gmail.com
+    name=<your-name>
+    email=<your-email>
 [http]
-    proxy=http://127.0.0.1:7890
+    proxy=http://127.0.0.1:7890 # 仅在使用代理时保留，按本机实际地址填写
 [https]
     proxy=http://127.0.0.1:7890
 [init]
@@ -66,7 +66,7 @@ code ~/.gitconfig # vscode
     ff=only
 ```
 
-令 git 使用 clash 代理
+> 不使用代理时，直接删除 `[http]` / `[https]` 两段即可。
 
 ## 三.初次提交模板
 
@@ -82,7 +82,7 @@ git commit -m "First commit"
 2. 添加远程仓库链接
 
 ```sh
-git remote add origin #仓库链接
+git remote add origin <仓库链接>
 ```
 
 3. 默认分支 main
@@ -94,8 +94,10 @@ git branch -M main
 4. 提交到 github 仓库
 
 ```sh
-git push -f -u origin main
+git push -u origin main
 ```
+
+> 首次推送新分支用 `-u` 建立跟踪关系即可；`-f` 会强制覆盖远程历史，仅在你确认需要覆盖时使用。
 
 ## 四.常用命令
 
@@ -126,7 +128,7 @@ git reset --hard HEAD^^
 - 回退到指定版本
 
 ```sh
-git reset --hard HEAD^^
+git reset --hard <commit-id>
 ```
 
 - 分支相关的操作

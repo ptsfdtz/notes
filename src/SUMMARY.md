@@ -43,7 +43,6 @@
   - [electron](./desktop/electron.md)
   - [tauri](./desktop/tauri.md)
   - [wails](./desktop/wails.md)
-  - [react-native](./desktop/react-native.md)
   - [qt](./desktop/qt.md)
 
 - [database](./database/intro.md)
@@ -54,6 +53,7 @@
 
 - [mobile](./mobile/intro.md)
   - [flutter](./mobile/flutter.md)
+  - [react-native](./mobile/react-native.md)
   - [android](./mobile/android.md)
 
 - [embedded](./embedded/intro.md)

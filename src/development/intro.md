@@ -1,4 +1,4 @@
-# devops
+# development
 
 DevOps 章节记录持续交付、容器编排、反向代理、监控与可观测性相关实践。
 

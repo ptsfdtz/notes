@@ -9,6 +9,25 @@ pnpm install
 pnpm run dev
 ```
 
+## 静态导出（GitHub Pages 部署前提）
+
+GitHub Pages 只能托管静态文件，Next.js 需要开启静态导出。在 `next.config.ts` 中设置 `output: 'export'`，否则 `pnpm build` 不会生成 `out/` 目录，workflow 会因找不到发布目录而失败。
+
+```ts
+// next.config.ts
+import type { NextConfig } from 'next'
+
+const nextConfig: NextConfig = {
+  output: 'export',
+  basePath: '/<仓库名>',      // 部署到 https://<用户名>.github.io/<仓库名>/ 时填写
+  assetPrefix: '/<仓库名>/',  // 与 basePath 保持一致
+}
+
+export default nextConfig
+```
+
+`basePath` / `assetPrefix` 应与 workflow 中的 `NEXT_PUBLIC_BASE_PATH` 保持一致；仅部署在用户主页（`https://<用户名>.github.io/`）时可以不设置。
+
 ## github workflow
 
 ```yaml
